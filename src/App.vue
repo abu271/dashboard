@@ -1,28 +1,74 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <v-toolbar dense>
+      <v-toolbar-title>Dashboard Worker</v-toolbar-title>
+      <div class="flex-grow-1"></div>
+    </v-toolbar>
+    <v-container>
+      <v-layout row wrap align-content-space-between>
+          <v-flex md6>
+            <v-card height="340" width="600">
+              <Bar />
+            </v-card>
+          </v-flex>
+          <v-flex md6>
+            <v-card height="340" width="600">
+              <Bar />
+            </v-card>
+          </v-flex>
+      </v-layout>
+      <v-layout row wrap align-content-center>
+        <v-flex sm6 lg3>
+          <v-card height="250" width="250" >
+            <Chart />
+          </v-card>
+        </v-flex>
+        <v-flex sm6 lg3>
+          <v-card height="250" width="250" >
+            <Chart />
+          </v-card>
+          </v-flex>
+        <v-flex sm6 lg3>
+          <v-card height="250" width="250" >
+            <Chart />
+          </v-card>
+        </v-flex>
+        <v-flex sm6 lg3>
+          <v-card height="250" width="250" >
+            <Chart />
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-layout row wrap align-content-center>
+        <v-flex lg12>
+          <v-card>
+            <Fancy :height="250"/>
+          </v-card>
+        </v-flex>
+      </v-layout>  
+    </v-container>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Bar from './graphs/Bar.js'
+import Chart from './graphs/Chart'
+import Fancy from './graphs/FancyGraph'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Bar,
+    Chart,
+    Fancy,
+  },
+  data: () => ({
+    //
+  }),
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.v-card {
+  margin: 10px
 }
 </style>
